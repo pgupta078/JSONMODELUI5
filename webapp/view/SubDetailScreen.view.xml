@@ -1,0 +1,12 @@
+<mvc:View controllerName="fiori.controller.SubDetailScreen" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="Sub Details" class="sapUiSizeCompact">
+		<content></content>
+		<footer>
+			<Bar>
+				<contentRight>
+				
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

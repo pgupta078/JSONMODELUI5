@@ -1,0 +1,36 @@
+<mvc:View controllerName="fiori.controller.DetailScreen" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+ xmlns:f="sap.ui.layout.form">
+	<Page title="Detail" class="sapUiSizeCompact">
+		<content>
+			<f:SimpleForm>
+				<f:content>
+					<Label text="{i18n>empid}" labelFor="empid" design="Bold" required="true"/>
+					<Text width="40%" text="{path: 'detailInputs>/empid'}" required="true" enabled="{detailInputs>/enabled}" change="onLiveChange" type="Number"></Input>
+					<Label text="{i18n>FullName}" design="Bold" required="true"></Label>
+					<Input width="40%" value="{detailInputs>/fname}"></Input>
+					<Label text="{i18n>Emailid}" design="Bold" required="true"></Label>
+					<Input width="40%" value="{detailInputs>/email}"></Input>
+					<Label text="{i18n>Designation}" design="Bold" required="true"></Label>
+					<ComboBox value="{detailInputs>/desigp}" placeholder="{i18n>Desigp}" width="40%" required="true">
+						<items>
+							<core:Item text="Consultant"></core:Item>
+							<core:Item text="Sr.Consultant"></core:Item>
+							<core:Item text="Associate Consultant"></core:Item>
+							<core:Item text="Principal Consultant"></core:Item>
+						</items>
+					</ComboBox>
+					<Label text="{i18n>DOJ}" design="Bold" required="true"></Label>
+					<DatePicker value="{detailInputs>/doj}" placeholder="please enter your date of Birth" width="40%"></DatePicker>
+				</f:content>	
+			</f:SimpleForm>	
+		</content>
+		<footer>
+				
+			<Bar>
+				<contentRight>
+					<Button text="Next" press="handleNext" type="Accept"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

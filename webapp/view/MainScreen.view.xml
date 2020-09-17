@@ -1,0 +1,90 @@
+<mvc:View controllerName="fiori.controller.MainScreen" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Page title="Main Screen" class="sapUiSizeCompact">
+		<content>
+			<f:SimpleForm editable="true">
+				<f:content>
+					<Label text="{i18n>Name}" design="Bold"></Label>
+					<Input value="{mainviewInput>/name}" width="40%"></Input>
+					<Label text="{i18n>Email}" design="Bold"></Label>
+					<Input value="{mainviewInput>/email}" width="40%"></Input>
+					<Label text="{i18n>Place}" design="Bold"></Label>
+					<ComboBox id="box0" items="{path:'/cityData'}" showSecondaryValues="true">
+						<core:Item key="{key}" text="{place}"></core:Item>
+					</ComboBox>
+					<Label text="{i18n>fromdate}" labelFor="DTI1" design="Bold"/>
+					<DateTimeInput id="DTI1" type="Date" placeholder="{i18n>enterdate}" class="sapUiSmallMarginBottom"/>
+					<Label text="{i18n>toDate}" labelFor="DTI2" design="Bold"/>
+					<DateTimeInput id="DTI2" type="Date" change="handleDate" placeholder="{i18n>enterdate}" class="sapUiSmallMarginBottom"/>
+					<Label text="{i18n>inpPlace}" design="Bold"></Label>
+					<Input id='iplace' width="40%"></Input>
+					<Label text="Date Difference" design="Bold"></Label>
+					<Text id="Text1" design="Bold"></Text>
+					<Button width="40%" icon="sap-icon://add" text="{i18n>AddPlace}" press="handleCombo"/>
+				</f:content>
+			</f:SimpleForm>
+			<Table id="table1" alternateRowColors="true" items="{path:'/modelData'}" mode="MultiSelect" text="table1">
+				<headerToolbar>
+					<Toolbar>
+						<Button icon="sap-icon://add" text="Row" press="handleAdd"/>
+						<Button icon="sap-icon://delete" text="Delete" press="handleDel"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Label design="Bold" text="Name"></Label>
+					</Column>
+					<Column>
+						<Label design="Bold" text="Email ID"></Label>
+					</Column>
+					<Column>
+						<Label design="Bold" text="Place"></Label>
+					</Column>
+					<Column>
+						<Label design="Bold" text="Salary"></Label>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="handleRowClick"  visible="{=${salary} &gt;=400000}">
+						<cells>
+							<Text text="{path:'name'}"></Text>
+							<Text text="{path:'email'}"></Text>
+							<Text text="{path:'place',formatter:'.formatter.handleGender'}"></Text>
+							<Text text="{path:'salary'}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table id="table2" alternateRowColors="true">
+				<headerToolbar>
+					<Toolbar>
+						<Button icon="sap-icon://add" text="Populate" press="handlePopulate"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Label design="Bold" text="Name"></Label>
+					</Column>
+					<Column>
+						<Label design="Bold" text="Email ID"></Label>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="handleRowClick">
+						<cells>
+							<Text text="{name2}"></Text>
+							<Text text="{email2}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://arrow-right" text="Next" press="handleNext" type="Accept"></Button>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

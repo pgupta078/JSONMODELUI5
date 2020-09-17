@@ -1,0 +1,21 @@
+{
+	"cityData": [{
+		"key": "TPA",
+		"place": "Tampa"
+	}, {
+		"key": "NDLS",
+		"place": "Delhi"
+	},
+	{
+		"key": "GKP",
+		"place": "Gorakhpur"
+	},
+		{
+		"key": "HYD",
+		"place": "Hyderabad"
+	},
+	{
+		"key": "CNB",
+		"place": "Bangalore"
+	}]
+}
